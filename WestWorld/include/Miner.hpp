@@ -21,7 +21,7 @@ class Miner : public BaseGameEntity {
   virtual void changeState(State<Miner>& newState);
 
   void addGold() { mGoldCarried++; }
-  int getGoldCarried() { return mGoldCarried; }
+  int getGoldCarried() const { return mGoldCarried; }
   void putGoldInBank() {
     mGoldInBank += mGoldCarried;
     mGoldCarried = 0;
@@ -32,7 +32,10 @@ class Miner : public BaseGameEntity {
   int getFatigue() { return mFatigue; }
   void decreaseFatigue() { mFatigue -= 2; }
   int getThirst() { return mThirst; }
-  void removeThirst() { mThirst = 0; }
+  void removeThirst() {
+    mThirst = 0;
+    mGoldInBank -= 2;
+  }
 };
 
 #endif

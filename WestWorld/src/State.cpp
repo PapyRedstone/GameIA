@@ -38,7 +38,7 @@ void VisitBank::execute(Miner& entity) {
 }
 
 void VisitBank::enter(Miner& entity) {
-  std::cout << entity.id() << " : Saving up gold.\n";
+  std::cout << entity.id() << " : Going to save up gold.\n";
   entity.setLocation(Location::Bank);
 }
 
@@ -48,7 +48,7 @@ void VisitBank::exit(Miner& entity) {
 
 void GoHome::execute(Miner& entity) {
   std::cout << entity.id() << " : ZZZZ\n";
-  entity.decreaseFatigue();
+  entity.decreaseFatigue(); 
   if (entity.getFatigue() <= 0) {
     DigGold nS;
     entity.changeState(nS);

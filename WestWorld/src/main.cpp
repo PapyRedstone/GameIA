@@ -11,9 +11,9 @@ int main() {
   for (int i = 0; i < 10; i++) {
     bob.update();
 
-    std::this_thread::sleep_for(2s);
+    std::this_thread::sleep_for(1s);
   }
-
+  std::cout << "Press enter to end ";
   while (getchar() != '\n')
     ;
 
